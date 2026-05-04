@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>درايف سفن | إهداء الفخامة</title>
+    <title>درايف سفن | إهداء</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -15,14 +15,16 @@
                         sans: ['"IBM Plex Arabic"', 'sans-serif'],
                     },
                     colors: {
+                        brand: {
+                            red: '#8A1538',
+                            redHover: '#6B0F2A',
+                        },
                         apple: {
                             bg: '#F5F5F7',
                             card: '#FFFFFF',
                             text: '#1D1D1F',
                             textLight: '#86868B',
                             border: '#D2D2D7',
-                            blue: '#0066CC',
-                            blueHover: '#0077ED',
                             dark: '#000000'
                         }
                     },
@@ -54,8 +56,8 @@
         /* Elegant Inputs */
         input:focus, textarea:focus {
             outline: none;
-            border-color: #0066CC;
-            box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.15);
+            border-color: #8A1538;
+            box-shadow: 0 0 0 4px rgba(138, 21, 56, 0.15);
         }
 
         /* Custom Number Input - hide arrows */
@@ -74,20 +76,6 @@
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(0,0,0,0.1);
-        }
-
-        /* Gift Card Texture */
-        .gift-card-bg {
-            background: linear-gradient(135deg, #1A1A1A 0%, #000000 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        .gift-card-bg::before {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%; width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
-            pointer-events: none;
         }
         
         .fade-in { animation: fadeIn 0.5s ease-out forwards; }
@@ -146,7 +134,6 @@
             <div class="absolute inset-0 bg-gradient-to-t from-[#000000] via-transparent to-transparent opacity-80"></div>
             
             <div class="relative z-10 text-center px-4 max-w-3xl slide-up text-white">
-                <h1 class="text-5xl md:text-7xl font-light mb-6 tracking-tight">إهداء الفخامة</h1>
                 <p class="text-xl md:text-2xl font-light text-gray-300 mb-10 leading-relaxed">امنح من تحب تجربة لا تُنسى للعناية الفائقة بسيارته.</p>
                 <button onclick="document.getElementById('gifting-form').scrollIntoView({behavior: 'smooth'})" 
                         class="bg-white text-black px-8 py-4 rounded-full font-medium text-lg hover:scale-105 transition-transform duration-300 shadow-lg">
@@ -155,11 +142,11 @@
             </div>
         </header>
 
-        <!-- Form & Preview Container -->
-        <main id="gifting-form" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full lg:grid lg:grid-cols-12 lg:gap-16">
+        <!-- Form Container -->
+        <main id="gifting-form" class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
             
-            <!-- Left Column: Form -->
-            <div class="lg:col-span-7 space-y-12 pb-24">
+            <!-- Main Form -->
+            <div class="space-y-12 pb-24">
                 
                 <!-- 1. Gift Amount -->
                 <section class="space-y-6 slide-up" style="animation-delay: 0.1s;">
@@ -175,7 +162,7 @@
                     <div id="custom-amount-container" class="hidden overflow-hidden transition-all duration-300">
                         <div class="relative flex items-center">
                             <input type="number" id="custom-amount" 
-                                   class="w-full bg-apple-card border border-apple-border rounded-xl px-5 py-4 text-lg transition-all duration-300 focus:border-apple-blue" 
+                                   class="w-full bg-apple-card border border-apple-border rounded-xl px-5 py-4 text-lg transition-all duration-300 focus:border-brand-red" 
                                    placeholder="أدخل المبلغ (ر.س)" min="100" step="10" inputmode="numeric">
                             <span class="absolute left-5 text-apple-textLight font-medium">ر.س</span>
                         </div>
@@ -193,7 +180,7 @@
                             <p id="sender-name-error" class="text-red-500 text-sm mt-1 hidden">الرجاء إدخال الاسم</p>
                         </div>
                         
-                        <div class="relative flex items-center bg-apple-card border border-apple-border rounded-xl overflow-hidden focus-within:border-apple-blue focus-within:ring-4 focus-within:ring-apple-blue/15 transition-all duration-300" id="sender-phone-container">
+                        <div class="relative flex items-center bg-apple-card border border-apple-border rounded-xl overflow-hidden focus-within:border-brand-red focus-within:ring-4 focus-within:ring-brand-red/15 transition-all duration-300" id="sender-phone-container">
                             <input type="tel" id="sender-phone" class="flex-1 px-5 py-4 outline-none text-lg text-left" dir="ltr" placeholder="5XXXXXXXX" maxlength="9" inputmode="numeric">
                             <div class="px-4 py-4 bg-gray-50 border-r border-apple-border text-apple-textLight font-medium flex-shrink-0" dir="ltr">+966</div>
                         </div>
@@ -208,6 +195,8 @@
 
                 <!-- 3. Recipient Info -->
                 <section class="space-y-6 slide-up" style="animation-delay: 0.3s;">
+                    <img src="https://i.postimg.cc/rs7Crs5Q/750-420-Wala-Plus-copy1.png" alt="بطاقة إهداء" class="w-full rounded-2xl shadow-sm mb-6 object-cover">
+                    
                     <h2 class="text-2xl font-semibold border-b border-apple-border pb-4">بيانات المُهدى له</h2>
                     
                     <div class="space-y-4">
@@ -216,7 +205,7 @@
                             <p id="recipient-name-error" class="text-red-500 text-sm mt-1 hidden">الرجاء إدخال الاسم</p>
                         </div>
                         
-                        <div class="relative flex items-center bg-apple-card border border-apple-border rounded-xl overflow-hidden focus-within:border-apple-blue focus-within:ring-4 focus-within:ring-apple-blue/15 transition-all duration-300" id="recipient-phone-container">
+                        <div class="relative flex items-center bg-apple-card border border-apple-border rounded-xl overflow-hidden focus-within:border-brand-red focus-within:ring-4 focus-within:ring-brand-red/15 transition-all duration-300" id="recipient-phone-container">
                             <input type="tel" id="recipient-phone" class="flex-1 px-5 py-4 outline-none text-lg text-left" dir="ltr" placeholder="5XXXXXXXX" maxlength="9" inputmode="numeric">
                             <div class="px-4 py-4 bg-gray-50 border-r border-apple-border text-apple-textLight font-medium flex-shrink-0" dir="ltr">+966</div>
                         </div>
@@ -235,8 +224,8 @@
                     <div class="grid grid-cols-2 gap-4">
                         <label class="relative cursor-pointer">
                             <input type="radio" name="delivery" value="sms" class="peer sr-only" checked>
-                            <div class="p-5 border border-apple-border rounded-xl peer-checked:border-apple-blue peer-checked:ring-1 peer-checked:ring-apple-blue bg-apple-card hover:shadow-apple transition-all flex flex-col items-center justify-center gap-3">
-                                <i data-lucide="message-square" class="w-8 h-8 text-apple-textLight peer-checked:text-apple-blue transition-colors"></i>
+                            <div class="p-5 border border-apple-border rounded-xl peer-checked:border-brand-red peer-checked:ring-1 peer-checked:ring-brand-red bg-apple-card hover:shadow-apple transition-all flex flex-col items-center justify-center gap-3">
+                                <i data-lucide="message-square" class="w-8 h-8 text-apple-textLight peer-checked:text-brand-red transition-colors"></i>
                                 <span class="font-medium">رسالة نصية (SMS)</span>
                             </div>
                         </label>
@@ -287,7 +276,7 @@
                     <div class="space-y-4">
                         <!-- Apple Pay -->
                         <button id="apple-pay-btn" class="w-full bg-black text-white h-16 rounded-[14px] flex items-center justify-center hover:bg-gray-900 transition-colors shadow-sm focus:outline-none focus:ring-4 focus:ring-gray-300">
-                            <svg class="h-6" viewBox="0 0 60 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg style="height: 28px; width: auto;" viewBox="0 0 60 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M22.956 12.378c-.035-3.09 2.529-4.57 2.645-4.646-1.438-2.102-3.66-2.39-4.455-2.426-1.893-.19-3.702 1.116-4.664 1.116-.962 0-2.457-1.08-3.99-1.05-2.007.03-3.856 1.164-4.888 2.955-2.088 3.618-.535 8.97 1.494 11.895.992 1.43 2.158 3.033 3.7 2.974 1.485-.06 2.05-.96 3.82-.96 1.769 0 2.296.96 3.844.93 1.577-.03 2.583-1.46 3.565-2.885 1.135-1.657 1.6-3.262 1.624-3.344-.035-.015-3.136-1.205-3.17-4.814h-.525zm-2.868-7.234c.823-.996 1.378-2.382 1.226-3.768-1.18.048-2.614.786-3.46 1.776-.757.886-1.417 2.302-1.242 3.66 1.32.103 2.653-.672 3.476-1.668z" fill="white"/>
                                 <path d="M37.95 24h3.69v-7.14h3.81c3.6 0 5.67-1.92 5.67-5.07 0-3.12-2.07-5.07-5.67-5.07h-7.5v17.28zm3.69-10.02v-4.47h3.42c1.68 0 2.55.78 2.55 2.22 0 1.47-.87 2.25-2.55 2.25h-3.42zM57.69 24.36c2.04 0 3.39-.63 4.29-1.89l-.24-.24c-.66.87-1.62 1.35-2.91 1.35-1.74 0-2.73-1.05-2.91-2.7h8.22v-.93c0-3.3-1.92-5.46-5.04-5.46-3.21 0-5.37 2.37-5.37 5.79 0 3.45 2.04 5.85 5.52 5.85h-.66zm-.03-8.88c1.38 0 2.19.99 2.19 2.43v.51h-5.22c.18-1.71 1.29-2.94 3.03-2.94zm10.74 13.92c1.74 0 2.76-.84 3.96-2.85l3.87-9.54h-3.51l-2.07 5.85-2.1-5.85h-3.6l3.6 8.52-1.02 2.64c-.45 1.14-.99 1.47-1.89 1.47h-.63v2.85c.39.03.87.06 1.38.06h-1.05z" fill="white"/>
                             </svg>
@@ -299,7 +288,7 @@
                         </div>
 
                         <!-- Card Payment -->
-                        <button id="card-pay-btn" class="w-full bg-apple-card border border-apple-border h-16 rounded-[14px] flex items-center justify-center gap-3 hover:bg-gray-50 transition-colors shadow-sm focus:outline-none focus:ring-4 focus:ring-apple-blue/20">
+                        <button id="card-pay-btn" class="w-full bg-apple-card border border-apple-border h-16 rounded-[14px] flex items-center justify-center gap-3 hover:bg-gray-50 transition-colors shadow-sm focus:outline-none focus:ring-4 focus:ring-brand-red/20">
                             <i data-lucide="credit-card" class="w-6 h-6 text-apple-text"></i>
                             <span class="font-medium text-lg">البطاقة الائتمانية / مدى</span>
                         </button>
@@ -310,58 +299,12 @@
                 <section class="bg-gray-100 rounded-2xl p-6 text-center space-y-3 slide-up" style="animation-delay: 0.7s;">
                     <p class="text-gray-600">شكراً لاختيارك درايف سفن. سيتم إشعارك فور وصول الهدية بنجاح.</p>
                     <p class="text-gray-600">للدعم والمساعدة، تواصل معنا عبر واتساب:</p>
-                    <a href="https://wa.me/966920000057" target="_blank" class="inline-flex items-center gap-2 text-apple-blue hover:text-apple-blueHover font-medium transition-colors" dir="ltr">
+                    <a href="https://wa.me/966920000057" target="_blank" class="inline-flex items-center gap-2 text-brand-red hover:text-brand-redHover font-medium transition-colors" dir="ltr">
                         <i data-lucide="message-circle" class="w-5 h-5"></i>
                         <span>920000057</span>
                     </a>
                 </section>
                 
-            </div>
-
-            <!-- Right Column: Sticky Preview -->
-            <div class="lg:col-span-5 relative mt-12 lg:mt-0">
-                <div class="sticky top-24 slide-up">
-                    <h3 class="text-xl font-semibold mb-6 text-center lg:text-right">المعاينة المباشرة</h3>
-                    
-                    <!-- The Gift Card -->
-                    <div class="gift-card-bg rounded-[2rem] shadow-card aspect-[1.6/1] p-8 text-white flex flex-col justify-between transform transition-all duration-500 hover:scale-[1.02]">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h4 class="text-sm font-light text-gray-400 mb-1">درايف سفن</h4>
-                                <p class="text-2xl font-medium tracking-wide">بطاقة إهداء</p>
-                            </div>
-                            <!-- Logo Minimal -->
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="opacity-90">
-                                <path d="M20 0C8.954 0 0 8.954 0 20C0 31.046 8.954 40 20 40C31.046 40 40 31.046 40 20C40 8.954 31.046 0 20 0ZM28.5 28.5L20 22L11.5 28.5L14.5 18.5L6 12.5H16.5L20 2L23.5 12.5H34L25.5 18.5L28.5 28.5Z" fill="white"/>
-                            </svg>
-                        </div>
-
-                        <div class="space-y-4">
-                            <div>
-                                <p class="text-xs text-gray-400 mb-1">إلى</p>
-                                <p id="preview-recipient" class="text-xl font-medium min-h-[1.75rem] break-words">اسم المُهدى له</p>
-                            </div>
-                            
-                            <div class="flex justify-between items-end">
-                                <div>
-                                    <p class="text-xs text-gray-400 mb-1">من</p>
-                                    <p id="preview-sender" class="text-lg font-medium text-gray-200 min-h-[1.75rem] break-words">اسم المُهدِي</p>
-                                </div>
-                                <div class="text-left" dir="ltr">
-                                    <p class="text-xs text-gray-400 mb-1 text-right">القيمة</p>
-                                    <p class="text-3xl font-light"><span id="preview-amount">1000</span> <span class="text-lg text-gray-400">SAR</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Message Preview -->
-                    <div class="mt-6 bg-white p-6 rounded-2xl shadow-sm border border-apple-border hidden fade-in" id="preview-message-container">
-                        <i data-lucide="quote" class="w-6 h-6 text-gray-300 mb-2"></i>
-                        <p id="preview-message" class="text-gray-700 italic leading-relaxed break-words"></p>
-                    </div>
-
-                </div>
             </div>
         </main>
     </div>
@@ -430,16 +373,10 @@
         const amountBtns = document.querySelectorAll('.amount-btn');
         const customAmountContainer = document.getElementById('custom-amount-container');
         const customAmountInput = document.getElementById('custom-amount');
-        const previewAmount = document.getElementById('preview-amount');
         
         const senderNameInput = document.getElementById('sender-name');
-        const previewSender = document.getElementById('preview-sender');
         const recipientNameInput = document.getElementById('recipient-name');
-        const previewRecipient = document.getElementById('preview-recipient');
-        
         const messageInput = document.getElementById('gift-message');
-        const previewMessageContainer = document.getElementById('preview-message-container');
-        const previewMessage = document.getElementById('preview-message');
 
         const scheduleBtns = document.querySelectorAll('.schedule-btn');
         const schedulePicker = document.getElementById('schedule-picker');
@@ -480,7 +417,6 @@
                 } else {
                     customAmountContainer.classList.add('hidden');
                     state.amount = val;
-                    updatePreview();
                 }
             });
         });
@@ -490,38 +426,12 @@
             let val = e.target.value;
             if (val < 0) e.target.value = Math.abs(val);
             state.amount = e.target.value || '0';
-            updatePreview();
         });
 
-        // Logic: Live Preview Bindings
-        senderNameInput.addEventListener('input', (e) => {
-            state.senderName = e.target.value;
-            updatePreview();
-        });
-
-        recipientNameInput.addEventListener('input', (e) => {
-            state.recipientName = e.target.value;
-            updatePreview();
-        });
-
-        messageInput.addEventListener('input', (e) => {
-            state.message = e.target.value;
-            updatePreview();
-        });
-
-        function updatePreview() {
-            previewAmount.textContent = state.amount === '0' ? '---' : state.amount;
-            previewSender.textContent = state.senderName || 'اسم المُهدِي';
-            previewRecipient.textContent = state.recipientName || 'اسم المُهدى له';
-            
-            if (state.message.trim().length > 0) {
-                previewMessageContainer.classList.remove('hidden');
-                previewMessage.textContent = state.message;
-                previewMessage.setAttribute('dir', messageInput.getAttribute('dir'));
-            } else {
-                previewMessageContainer.classList.add('hidden');
-            }
-        }
+        // Track inputs
+        senderNameInput.addEventListener('input', (e) => { state.senderName = e.target.value; });
+        recipientNameInput.addEventListener('input', (e) => { state.recipientName = e.target.value; });
+        messageInput.addEventListener('input', (e) => { state.message = e.target.value; });
 
         // Logic: Phone Formatting (Starts with 5, 9 digits max)
         function setupPhoneInput(inputId, containerId) {
