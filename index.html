@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>درايف سفن | إهداء</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['"IBM Plex Arabic"', 'sans-serif'],
+                        sans: ['"IBM Plex Sans Arabic"', 'sans-serif'],
                     },
                     colors: {
                         brand: {
@@ -134,7 +134,7 @@
             <div class="absolute inset-0 bg-gradient-to-t from-[#000000] via-transparent to-transparent opacity-80"></div>
             
             <div class="relative z-10 text-center px-4 max-w-3xl slide-up text-white">
-                <p class="text-xl md:text-2xl font-light text-gray-300 mb-10 leading-relaxed">امنح من تحب تجربة لا تُنسى للعناية الفائقة بسيارته.</p>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-10 leading-tight">امنح من تحب تجربة لا تُنسى للعناية الفائقة بسيارته.</h1>
                 <button onclick="document.getElementById('gifting-form').scrollIntoView({behavior: 'smooth'})" 
                         class="bg-white text-black px-8 py-4 rounded-full font-medium text-lg hover:scale-105 transition-transform duration-300 shadow-lg">
                     ابدأ الإهداء
@@ -152,21 +152,21 @@
                 <section class="space-y-6 slide-up" style="animation-delay: 0.1s;">
                     <h2 class="text-2xl font-semibold border-b border-apple-border pb-4">قيمة الإهداء</h2>
                     
-                    <div class="bg-apple-card rounded-2xl p-1.5 flex flex-wrap sm:flex-nowrap shadow-sm border border-apple-border gap-1">
-                        <button type="button" class="amount-btn flex-1 py-3 px-2 text-center rounded-xl font-medium transition-all duration-300 bg-black text-white shadow-md" data-value="1000">1000 ر.س</button>
-                        <button type="button" class="amount-btn flex-1 py-3 px-2 text-center rounded-xl font-medium transition-all duration-300 text-apple-textLight hover:bg-gray-50" data-value="2500">2500 ر.س</button>
-                        <button type="button" class="amount-btn flex-1 py-3 px-2 text-center rounded-xl font-medium transition-all duration-300 text-apple-textLight hover:bg-gray-50" data-value="5000">5000 ر.س</button>
-                        <button type="button" class="amount-btn flex-1 py-3 px-2 text-center rounded-xl font-medium transition-all duration-300 text-apple-textLight hover:bg-gray-50" data-value="custom">مبلغ آخر</button>
+                    <div class="bg-apple-card rounded-2xl p-2 grid grid-cols-2 shadow-sm border border-apple-border gap-3">
+                        <button type="button" class="amount-btn py-5 px-4 text-center rounded-xl text-lg font-medium transition-all duration-300 bg-black text-white shadow-md" data-value="1000">1000 ﷼</button>
+                        <button type="button" class="amount-btn py-5 px-4 text-center rounded-xl text-lg font-medium transition-all duration-300 text-apple-textLight hover:bg-gray-50" data-value="2500">2500 ﷼</button>
+                        <button type="button" class="amount-btn py-5 px-4 text-center rounded-xl text-lg font-medium transition-all duration-300 text-apple-textLight hover:bg-gray-50" data-value="5000">5000 ﷼</button>
+                        <button type="button" class="amount-btn py-5 px-4 text-center rounded-xl text-lg font-medium transition-all duration-300 text-apple-textLight hover:bg-gray-50" data-value="custom">مبلغ آخر</button>
                     </div>
 
-                    <div id="custom-amount-container" class="hidden overflow-hidden transition-all duration-300">
+                    <div id="custom-amount-container" class="hidden overflow-hidden transition-all duration-300 mt-4">
                         <div class="relative flex items-center">
                             <input type="number" id="custom-amount" 
                                    class="w-full bg-apple-card border border-apple-border rounded-xl px-5 py-4 text-lg transition-all duration-300 focus:border-brand-red" 
-                                   placeholder="أدخل المبلغ (ر.س)" min="100" step="10" inputmode="numeric">
-                            <span class="absolute left-5 text-apple-textLight font-medium">ر.س</span>
+                                   placeholder="أدخل المبلغ (﷼)" min="100" step="10" inputmode="numeric">
+                            <span class="absolute left-5 text-apple-textLight font-medium text-lg">﷼</span>
                         </div>
-                        <p id="amount-error" class="text-red-500 text-sm mt-2 hidden">الرجاء إدخال مبلغ صحيح (الحد الأدنى 100 ر.س)</p>
+                        <p id="amount-error" class="text-red-500 text-sm mt-2 hidden">الرجاء إدخال مبلغ صحيح (الحد الأدنى 100 ﷼)</p>
                     </div>
                 </section>
 
@@ -328,7 +328,7 @@
                 </div>
                 <div class="flex justify-between items-center border-b border-gray-200 pb-3">
                     <span class="text-gray-500">القيمة</span>
-                    <span class="font-medium" dir="ltr"><span id="success-amount"></span> SAR</span>
+                    <span class="font-medium" dir="ltr"><span id="success-amount"></span> ﷼</span>
                 </div>
                 <div class="flex justify-between items-center border-b border-gray-200 pb-3">
                     <span class="text-gray-500">طريقة الإرسال</span>
